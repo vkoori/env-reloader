@@ -35,13 +35,22 @@ class Reload
 				continue;
 			}
 
-			if (!key_exists(trim($matches[1]), $data)) {
+			$key = trim($matches[1]);
+
+			if (!key_exists($key, $data)) {
 				$newLines[] = $line;
 				continue;
 			}
 
-			$line = trim($matches[1]) . "={$data[trim($matches[1])]}\n";
+			$line = $key . "={$data[$key]}\n";
 			$newLines[] = $line;
+			unset($data[$key]);
+		}
+
+		$newLines[] = "\n";
+
+		foreach ($data as $key => $value) {
+			$newLines[] = "{$key}=" . trim($value) . "\n";
 		}
 
 		$newContent = implode('', $newLines);
