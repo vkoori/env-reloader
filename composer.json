@@ -1,0 +1,29 @@
+{
+    "name": "vkoori/env-reloader",
+    "description": "Overwriting the laravel/lumen environment without restarting the server.",
+    "keywords": [
+        "env",
+        "laravel",
+        "lumen"
+    ],
+    "authors": [
+        {
+            "name": "Koorosh SafeAshrafi",
+            "email": "kooroshsafeashrafi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kooriv\\Env\\": "src/app/"
+        },
+        "files": [
+            "src/Helper.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
